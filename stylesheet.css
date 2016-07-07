@@ -1,0 +1,22 @@
+body{
+	background-color: #E44332;
+}
+
+.top-green-bar{
+	background-color: #9BCD50;
+	height: 5%;
+}
+
+.work{
+	text-align: center;
+	color: white;
+	font-family: 'Abril Fatface', cursive;
+	font-size: 100px;
+}
+
+.minus{
+	text-align: right;
+	color: white;
+	font-family: 'Slabo 27px', serif;
+	font-size: 150px;
+}
