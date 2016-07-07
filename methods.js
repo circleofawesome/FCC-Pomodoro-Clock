@@ -1,3 +1,6 @@
+//the clock runs for the duration of work specified then the break portion runs then the work portion runs again..forever 
+
+
 //takes number of milliseconds and returns a proper time to display
 function milToTime(mil){
 	mil/=1000;
