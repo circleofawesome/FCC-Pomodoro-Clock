@@ -5,6 +5,7 @@
 	<script src="script.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 	<title>Pomodoro Clock</title>
 </head>
 <body>
@@ -16,14 +17,27 @@
 			<div class="col-md-12 work">Work</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4 minus">-</div>
-			<div class="col-md-4 work-time">25:00</div>
-			<div class="col-md-4 plus">+</div>
+			<div class="col-md-4 minus" id="work-minus">-</div>
+			<div class="col-md-4 time" id="work-time-id">25:00</div>
+			<div class="col-md-4 plus" id="work-plus">+</div>
 		</div>
-		<div class="row"></div>
-		<div class="row"></div>
-		<div class="row"></div>
-		<div class="row"></div>
+		<div class="row">
+			<div class="col-md-12 pause-play" id="work-pause-play">&#9658</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 mid-buffer"><img src="http://i.cubeupload.com/Gm39wf.png" class="img-responsive center-block"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 break">Break</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 minus" id="break-minus">-</div>
+			<div class="col-md-4 time" id="break-time-id">5:00</div>
+			<div class="col-md-4 plus" id="break-plus">+</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 pause-play" id="break-pause-play">&#9658</div>
+		</div>
 	</div>
 </body>
 </html>

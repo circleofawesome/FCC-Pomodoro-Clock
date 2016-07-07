@@ -1,10 +1,10 @@
 body{
-	background-color: #E44332;
+	background-color: #FF423D;
 }
 
 .top-green-bar{
 	background-color: #9BCD50;
-	height: 5%;
+	height: 2%;
 }
 
 .work{
@@ -15,8 +15,39 @@ body{
 }
 
 .minus{
-	text-align: right;
+	text-align: center;
 	color: white;
 	font-family: 'Slabo 27px', serif;
-	font-size: 150px;
+	font-size: 100px;
+}
+
+.plus{
+	text-align: center;
+	color: white;
+	font-family: 'Slabo 27px', serif;
+	font-size: 100px;
+}
+
+.time{
+	text-align: center;
+	color: white;
+	font-family: 'Slabo 27px', serif;
+	font-size: 100px;
+}
+
+.pause-play{
+	text-align: center;
+	color: white;
+	font-size: 60px;
+}
+
+.mid-buffer{
+	height: 5%;
+}
+
+.break{
+	text-align: center;
+	color: white;
+	font-size: 100px;
+	font-family: 'Pacifico', cursive;
 }
