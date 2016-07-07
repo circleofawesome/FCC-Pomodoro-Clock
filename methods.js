@@ -18,3 +18,9 @@ function milToTime(mil){
 
 ========================
 
+//function that takes a time in milliseconds and the id of the element to be changed and displays it 
+
+function displayTime(time,id){
+	var str=milToTime(time);
+	document.getElementById(id).value=str;
+}
