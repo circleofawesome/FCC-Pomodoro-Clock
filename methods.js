@@ -24,3 +24,13 @@ function displayTime(time,id){
 	var str=milToTime(time);
 	document.getElementById(id).value=str;
 }
+
+=====================
+
+//takes a time and clock ID and counts it down to zero
+
+function countdown(time,id){
+	var str=milToTime(time);
+	time-=1000;
+	document.getElementById(id).value=str;
+}
