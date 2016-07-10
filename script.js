@@ -26,8 +26,26 @@ function milToTime(){
 }
 
 var stopWatch;
+var playStatus=0;
+//even #s mean its on play, odd means its on pause
 
 function countdown(){
-	stopWatch=setInterval(milToTime,1000);
+	/*stopWatch=setInterval(milToTime,1000);
+	document.getElementById("work-pause-play").innerHTML="&#10074 &#10074";*/
+	if(playStatus%2===0){
+		//even
+		playStatus+=1;
+		document.getElementById("work-pause-play").innerHTML="&#10074 &#10074";
+		stopWatch=setInterval(milToTime,1000);
+	}
+	else{
+		//odd
+		playStatus+=1;
+		document.getElementById("work-pause-play").innerHTML="&#9658";
+		clearInterval(stopWatch);
+	}
 }
 
+function pause(){
+	clearInterval(stopWatch);
+}
