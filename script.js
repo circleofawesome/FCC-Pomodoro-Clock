@@ -2,6 +2,7 @@ var time=1500000;
 time-=1000;
 function milToTime(){
 	var mil=time;
+	var initTime=time;
 	mil/=1000;
 	var mins=0;
 	while(mil>59){
@@ -19,7 +20,8 @@ function milToTime(){
 		document.getElementById("work-time-id").innerHTML=mins.toString()+":"+mil.toString();
 	}
 	if(time<0){
-		time=5000;
+		//time=5000;
+		time=initTime;
 		console.log(time);
 		playStatus+=1;
 		document.getElementById("work-pause-play").innerHTML="&#9658";
@@ -56,6 +58,9 @@ function plusWorkTime(){
 	clearInterval(stopWatch);
 	time+=60000;
 	time=remainderRemover(time);
+	if(time>3600000){
+		time=3600000;
+	}
 	var updatedTime=milToTimePure(time);
 	document.getElementById("work-time-id").innerHTML=updatedTime;
 }
@@ -64,6 +69,9 @@ function minusWorkTime(){
 	clearInterval(stopWatch);
 	time-=60000;
 	time=remainderRemover(time);
+	if(time<=0){
+		time=0;
+	}
 	var updatedTime=milToTimePure(time);
 	document.getElementById("work-time-id").innerHTML=updatedTime;
 }
@@ -85,3 +93,7 @@ function remainderRemover(mil){
 	var seconds=mil%60000;
 	return mil-seconds;
 }
+
+
+//BREAK FUNCTIONS BELOW
+
