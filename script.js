@@ -1,5 +1,5 @@
-var time=5000;
-//time-=1000;
+var time=1500000;
+time-=1000;
 function milToTime(){
 	var mil=time;
 	mil/=1000;
@@ -21,6 +21,8 @@ function milToTime(){
 	if(time<0){
 		time=5000;
 		console.log(time);
+		playStatus+=1;
+		document.getElementById("work-pause-play").innerHTML="&#9658";
 		clearInterval(stopWatch);
 	}
 }
@@ -29,7 +31,7 @@ var stopWatch;
 var playStatus=0;
 //even #s mean its on play, odd means its on pause
 
-function countdown(){
+function countdownWork(){
 	/*stopWatch=setInterval(milToTime,1000);
 	document.getElementById("work-pause-play").innerHTML="&#10074 &#10074";*/
 	if(playStatus%2===0){
@@ -48,4 +50,14 @@ function countdown(){
 
 function pause(){
 	clearInterval(stopWatch);
+}
+
+function plusWorkTime(){
+	clearInterval(stopWatch);
+	time+=60000;
+}
+
+function minusWorkTime(){
+	clearInterval(stopWatch);
+	time-=60000;
 }
