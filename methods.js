@@ -2,7 +2,7 @@
 
 
 //takes number of milliseconds and returns a proper time to display
-function milToTime(mil){
+function milToTimePure(mil){
 	mil/=1000;
 	var mins=0;
 	while(mil>59){
@@ -14,7 +14,7 @@ function milToTime(mil){
 	}
 	return mins.toString()+":"+mil.toString();
 }
-//milToTime(882000);
+//milToTimePure(882000);
 
 ========================
 
@@ -65,3 +65,13 @@ function milToTime(){
 }
 
 =========================
+
+//removes the seconds and returns the time rounded down ex. 25:34==>25:00
+function remainderRemover(mil){
+	var seconds=mil%60000;
+	return mil-seconds;
+}
+
+//remainderRemover(1540000);
+
+========================

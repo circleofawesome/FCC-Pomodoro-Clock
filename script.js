@@ -55,9 +55,33 @@ function pause(){
 function plusWorkTime(){
 	clearInterval(stopWatch);
 	time+=60000;
+	time=remainderRemover(time);
+	var updatedTime=milToTimePure(time);
+	document.getElementById("work-time-id").innerHTML=updatedTime;
 }
 
 function minusWorkTime(){
 	clearInterval(stopWatch);
 	time-=60000;
+	time=remainderRemover(time);
+	var updatedTime=milToTimePure(time);
+	document.getElementById("work-time-id").innerHTML=updatedTime;
+}
+
+function milToTimePure(mil){
+	mil/=1000;
+	var mins=0;
+	while(mil>59){
+		mil-=60;
+		mins+=1;
+	}
+	if(mil<10){
+		return mins.toString()+":0"+mil.toString();
+	}
+	return mins.toString()+":"+mil.toString();
+}
+
+function remainderRemover(mil){
+	var seconds=mil%60000;
+	return mil-seconds;
 }
