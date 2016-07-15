@@ -25,6 +25,8 @@ body{
 	cursor:default;
 }
 
+
+
 .plus{
 	text-align: center;
 	color: white;
@@ -58,13 +60,28 @@ body{
 	color: #9BCD50;
 }
 
+#work-pause-play:active{
+	color: #003300;
+}
+
+
 #work-minus:hover{
 	color: #9BCD50;
 }
 
+#work-minus:active{
+	color: #003300;
+}
+
+
 #work-plus:hover{
 	color: #9BCD50;
 }
+
+#work-plus:active{
+	color: #003300;
+}
+
 .mid-buffer{
 	height: 5%;
 }
