@@ -75,3 +75,27 @@ body{
 	font-size: 100px;
 	font-family: 'Pacifico', cursive;
 }
+
+#break-minus:hover{
+	color: #9BCD50;
+}
+
+#break-minus:active{
+	color: #003300;
+}
+
+#break-plus:hover{
+	color: #9BCD50;
+}
+
+#break-plus:active{
+	color: #003300;
+}
+
+#break-pause-play:hover{
+	color: #9BCD50;
+}
+
+#break-pause-play:active{
+	color: #003300;
+}
