@@ -7,14 +7,12 @@ var x; //the variable for setInterval
 function mainFunction(){
 	if((status==="enabled")&&(pauseStatus===false)){
 		//start countdown for workTime, in here put the pause clause too
-		//console.log("enabled"); //testing
 		workTime-=1000;//testing
 		workCountdown();
 		pauseStatus=true;
 	}
 	else if(status==="disabled"){
 		//exit the function while doing nothing
-		//console.log("disabled"); //testing
 		return null;
 	}
 	else if((status==="enabled")&&(pauseStatus===true)){
@@ -33,11 +31,9 @@ function milToTime(mil,id){
 	}
 	var stringTime;
 	if(mil<10){
-		//return mins.toString()+":0"+mil.toString();
 		stringTime=mins.toString()+":0"+mil.toString();
 		return document.getElementById(id).innerHTML=stringTime;
 	}
-	//return mins.toString()+":"+mil.toString();
 	stringTime=mins.toString()+":"+mil.toString();
 	return document.getElementById(id).innerHTML=stringTime;
 }
@@ -124,6 +120,7 @@ function workPlus(){
 	else{
 		status="enabled";
 	}
+	workTime=remainderRemover(workTime);
 	milToTime(workTime,"work-time-id");
 }
 
@@ -140,6 +137,7 @@ function workMinus(){
 	if(workTime<0){
 		workTime=0;
 	}
+	workTime=remainderRemover(workTime);
 	milToTime(workTime,"work-time-id");
 }
 
@@ -153,6 +151,7 @@ function breakPlus(){
 	else{
 		breakStatus="enabled";
 	}
+	breakTime=remainderRemover(breakTime);
 	milToTime(breakTime,"break-time-id");
 }
 
@@ -169,6 +168,13 @@ function breakMinus(){
 	if(breakTime<0){
 		breakTime=0;
 	}
+	breakTime=remainderRemover(breakTime);
 	milToTime(breakTime,"break-time-id");
 
+}
+
+//removes the seconds and returns the time rounded down ex. 25:34==>26:00
+function remainderRemover(mil){
+	var seconds=mil%60000;
+	return mil-seconds;
 }
