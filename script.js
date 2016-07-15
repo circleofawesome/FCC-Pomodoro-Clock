@@ -1,4 +1,4 @@
-var workTime=5000;
+var workTime=1500000;
 var initialTime=workTime;
 var status="enabled";
 var pauseStatus=false;
@@ -8,6 +8,7 @@ function mainFunction(){
 	if((status==="enabled")&&(pauseStatus===false)){
 		//start countdown for workTime, in here put the pause clause too
 		//console.log("enabled"); //testing
+		workTime-=1000;//testing
 		workCountdown();
 		pauseStatus=true;
 	}
@@ -65,7 +66,7 @@ function workCountdown(){
 
 //BELOW ARE FUNCTIONS FOR THE BREAK CLOCK
 
-var breakTime=5000;
+var breakTime=300000;
 var initialBreakTime=breakTime;
 var breakStatus="disabled";
 var breakPauseStatus=false;
@@ -74,26 +75,23 @@ var y; //variable for setInterval for break
 function breakMain(){
 	if((breakStatus==="enabled")&&(breakPauseStatus===false)){
 		//start break countdown
-		console.log("1"); //test
+		breakTime-=1000;//testing
 		breakCountdown();
 		breakPauseStatus=true;
-		console.log(breakStatus); //test
+		
 	}
 	else if(breakStatus==="disabled"){
 		//do nothing and exit breakMain()
-		console.log("2"); //test
 		return null;
 	}
 	else if((breakStatus==="enabled")&&(breakPauseStatus===true)){
 		//run pause for break
-		console.log("3"); //test
 		clearInterval(y);
 		breakPauseStatus=false;
 	}
 }
 
 function breakCountdown(){
-	console.log(breakStatus); //test
 	function countdownInterval(){
 		milToTime(breakTime,"break-time-id");
 		breakTime-=1000;
@@ -103,10 +101,74 @@ function breakCountdown(){
 			breakPauseStatus=false;
 			milToTime(breakTime,"break-time-id");
 			breakStatus="disabled";
+			status="enabled";
+			mainFunction();
 			//begin workCountdown again
 			clearInterval(y);
 		}
 	}
 
 	y=setInterval(countdownInterval,1000);
+}
+
+
+//PLUS MINUES FUNCTIONS BELOW
+
+function workPlus(){
+	workTime+=60000;
+	clearInterval(x);
+	pauseStatus=false;
+	if(breakStatus==="enabled"){
+		status="disabled";
+	}
+	else{
+		status="enabled";
+	}
+	milToTime(workTime,"work-time-id");
+}
+
+function workMinus(){
+	workTime-=60000;
+	clearInterval(x);
+	pauseStatus=false;
+	if(breakStatus==="enabled"){
+		status="disabled";
+	}
+	else{
+		status="enabled";
+	}
+	if(workTime<0){
+		workTime=0;
+	}
+	milToTime(workTime,"work-time-id");
+}
+
+function breakPlus(){
+	breakTime+=60000;
+	clearInterval(y);
+	pauseStatus=false;
+	if(status==="enabled"){
+		breakStatus="disabled";
+	}
+	else{
+		breakStatus="enabled";
+	}
+	milToTime(breakTime,"break-time-id");
+}
+
+function breakMinus(){
+	breakTime-=60000;
+	clearInterval(y);
+	pauseStatus=false;
+	if(status==="enabled"){
+		breakStatus="disabled";
+	}
+	else{
+		breakStatus="enabled";
+	}
+	if(breakTime<0){
+		breakTime=0;
+	}
+	milToTime(breakTime,"break-time-id");
+
 }
